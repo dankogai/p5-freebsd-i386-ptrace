@@ -1,5 +1,5 @@
 /*
- * $Id: Ptrace.xs,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
+ * $Id: Ptrace.xs,v 0.3 2015/01/14 06:22:13 dankogai Exp $
  */
 
 #include "EXTERN.h"

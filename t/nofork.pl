@@ -17,6 +17,7 @@ else {
         last if wait == -1;
         my $call = pt_getcall($pid);
         my $name = $SYS{$call} || 'unknown';
+        last if $name eq 'exit';
         # warn "$name";
         if ( $name =~ /fork/ ) {
             #pt_kill($pid);

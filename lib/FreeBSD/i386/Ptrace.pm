@@ -1,11 +1,11 @@
 #
-# $Id: Ptrace.pm,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
+# $Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
 #
 package FreeBSD::i386::Ptrace;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.3 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.4 $ =~ /(\d+)/g;
 require Exporter;
 our @ISA = qw/Exporter/;
 
@@ -173,7 +173,7 @@ FreeBSD::i386::Ptrace - Ptrace for FreeBSD-i386
 
 =head1 VERSION
 
-$Id: Ptrace.pm,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
+$Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 
@@ -199,6 +199,7 @@ $Id: Ptrace.pm,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
         wait;
         my $retval = pt_getcall($pid);
         my $name = $SYS{$call} || 'unknown';
+        last if $name eq 'exit'; # Needed for perl 5.18 and up
         print "$name() = $retval\n";
         $count++;
     }
@@ -293,6 +294,7 @@ There seems no way to block the call.
       last if wait == -1;
       my $call = pt_getcall($pid);
       my $name = $SYS{$call} || 'unknown';
+      last if $name eq 'exit'; # Needed for perl 5.18 and up
       next if !$banned{ $name };
       pt_kill($pid); # happens AFTER the system call.
       die "SYS_$SYS{$call}\n";
@@ -403,7 +405,7 @@ L<Sys::Ptrace>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Dan Kogai, all rights reserved.
+Copyright 2009-2015 Dan Kogai, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

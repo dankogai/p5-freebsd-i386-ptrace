@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: rperl.pl,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
+# $Id: rperl.pl,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
 #
 use strict;
 use warnings;
@@ -51,6 +51,7 @@ else {                # mother
             last if wait == -1;
             my $call = pt_getcall($pid);
 	    my $name = $SYS{$call} || 'unknown';
+            last if $name eq 'exit';
             next if !$banned{ $name };
 	    #pt_kill($pid);
 	    ptrace(PT_CONTINUE, $pid, 0, 9);

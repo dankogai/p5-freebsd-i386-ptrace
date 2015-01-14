@@ -1,5 +1,5 @@
 #
-# $Id: Ptrace.pm,v 0.3 2009/03/20 22:42:20 dankogai Exp dankogai $
+# $Id: Ptrace.pm,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
 #
 package FreeBSD::i386::Ptrace;
 use 5.008001;
@@ -173,7 +173,7 @@ FreeBSD::i386::Ptrace - Ptrace for FreeBSD-i386
 
 =head1 VERSION
 
-$Id: Ptrace.pm,v 0.3 2009/03/20 22:42:20 dankogai Exp dankogai $
+$Id: Ptrace.pm,v 0.3 2015/01/14 06:22:13 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 

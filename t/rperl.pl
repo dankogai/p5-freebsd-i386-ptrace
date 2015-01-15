@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: rperl.pl,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+# $Id: rperl.pl,v 0.4 2015/01/14 06:30:20 dankogai Exp $
 #
 use strict;
 use warnings;

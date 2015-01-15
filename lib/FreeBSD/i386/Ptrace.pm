@@ -1,11 +1,11 @@
 #
-# $Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+# $Id: Ptrace.pm,v 0.5 2015/01/14 23:59:24 dankogai Exp dankogai $
 #
 package FreeBSD::i386::Ptrace;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.4 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.5 $ =~ /(\d+)/g;
 require Exporter;
 our @ISA = qw/Exporter/;
 
@@ -161,6 +161,7 @@ sub pt_pokestr{
 	    $int = ($int << 8) + $c;
 	}
 	ptrace(PT_WRITE_D, $pid, $addr, $int);
+        $addr += 4;
     }
 }
 
@@ -173,7 +174,7 @@ FreeBSD::i386::Ptrace - Ptrace for FreeBSD-i386
 
 =head1 VERSION
 
-$Id: Ptrace.pm,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+$Id: Ptrace.pm,v 0.5 2015/01/14 23:59:24 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 

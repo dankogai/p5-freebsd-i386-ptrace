@@ -1,10 +1,15 @@
 # Revision history for FreeBSD-i386-Ptrace
 #
-# $Id: Changes,v 0.4 2015/01/14 06:30:20 dankogai Exp dankogai $
+# $Id: Changes,v 0.5 2015/01/14 23:59:24 dankogai Exp dankogai $
 #
 # Revision history for Revision history for URI-Escape-XS
 #
-$Revision: 0.4 $ $Date: 2015/01/14 06:30:20 $
+$Revision: 0.5 $ $Date: 2015/01/14 23:59:24 $
++ t/peekpoke.pl
+! lib/FreeBSD/i386/Ptrace.pm
+  * fix pt_pokestr
+
+0.04 2015/01/14 06:30:20
 ! README lib/FreeBSD/i386/Ptrace.pm t/nofork.pl t/rperl.pl
   * POD fixes.
   * Copyright fixes.
